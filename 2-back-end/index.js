@@ -7,6 +7,7 @@ const wss = new WebSocket.Server({
 wss.on('connection', function(ws){
     ws.send("Connection established")
     ws.on('message', function(data){
-        console.log("New entry, \"", data.toString(), "\"")
+        console.log(data.toString())
+        ws.send(data.toString())
     })
 })  
